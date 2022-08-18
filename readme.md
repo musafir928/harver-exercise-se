@@ -45,12 +45,12 @@ Dillinger uses a number of open source projects to work properly:
 # folder structure:
 
 ```
-📦 quakehunter
-    📜 index.js => code with useful comments
-    📜 .gitignore
-    📜 index-clean => cleaned version of index
-    📜 package.json=> npm packages and start script
-    📜 cat-card.jpeg => generated file
+📦  harver-exercise-se
+        📜 index.js => code with useful comments
+        📜 .gitignore
+        📜 index-clean => cleaned version of index
+        📜 package.json=> npm packages and start script
+        📜 cat-card.jpeg => generated file
 ```
 
 # Thanks!
