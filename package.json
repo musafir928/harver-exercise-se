@@ -1,7 +1,20 @@
 {
-  "dependencies": {
-    "@mapbox/blend": "^2.0.1",
-    "minimist": "^1.2.6",
-    "request": "^2.88.2"
-  }
+    "dependencies": {
+        "@mapbox/blend": "^2.0.1",
+        "minimist": "^1.2.6",
+        "request": "^2.88.2"
+    },
+    "name": "harver-exercise-se",
+    "version": "1.0.0",
+    "description": "refactor excercise",
+    "main": "index.js",
+    "devDependencies": {},
+    "scripts": {
+        "start": "node ./index.js"
+    },
+    "keywords": [
+        "refactor",
+        "nodejs"
+    ],
+    "author": "adil"
 }
