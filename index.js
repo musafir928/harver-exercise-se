@@ -21,35 +21,8 @@ const requestBodyGenerator = (word, width, height, color, size, encodingType) =>
     encoding: encodingType
 });
 
-let firstReq = {
-    url:
-        'https://cataas.com/cat/says/' +
-        greeting +
-        '?width=' +
-        width +
-        '&height=' +
-        height +
-        '&color' +
-        color +
-        '&s=' +
-        size,
-    encoding: 'binary'
-};
-
-let secondReq = {
-    url:
-        'https://cataas.com/cat/says/' +
-        who +
-        '?width=' +
-        width +
-        '&height=' +
-        height +
-        '&color' +
-        color +
-        '&s=' +
-        size,
-    encoding: 'binary'
-};
+const firstReq = requestBodyGenerator(greeting, width, height, color, size, 'binary');
+const secondReq = requestBodyGenerator(greeting, width, height, color, size, 'binary');
 
 request.get(firstReq, (err, res, firstBody) => {
     if (err) {
