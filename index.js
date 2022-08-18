@@ -13,8 +13,15 @@ let {
     size = 100
 } = argv;
 
+/**
+ * @returns eg: {url: https://cataas.com/cat/says/Hi%20There?width=500&amp;height=800&amp;c=Cyan&amp;s=150}
+ */
+const requestBodyGenerator = (word, width, height, color, size, encodingType) => ({
+    url: `https://cataas.com/cat/says/${word}?width=${width}&height=${height}&color=${color}&s=${size}`,
+    encoding: encodingType
+});
+
 let firstReq = {
-    // https://cataas.com/cat/says/Hi%20There?width=500&amp;height=800&amp;c=Cyan&amp;s=150
     url:
         'https://cataas.com/cat/says/' +
         greeting +
