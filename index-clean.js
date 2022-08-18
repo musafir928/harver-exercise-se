@@ -1,5 +1,4 @@
 const { writeFile } = require('fs');
-const { join } = require('path');
 const axios = require('axios');
 const blend = require('@mapbox/blend');
 const argv = require('minimist')(process.argv.slice(2));
@@ -53,9 +52,7 @@ const combineImages = async () => {
             ],
             { width: width * 2, height: height, format: 'jpeg' },
             (err, data) => {
-                const fileOut = join(process.cwd(), `/cat-card.jpg`);
-
-                writeFile(fileOut, data, 'binary', (err) => {
+                writeFile(`./cat-card.jpg`, data, 'binary', (err) => {
                     if (err) {
                         console.log(err);
                         return;
