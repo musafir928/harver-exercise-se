@@ -1,8 +1,9 @@
-let { writeFile } = require('fs');
-let { join } = require('path');
-let request = require('request');
-let blend = require('@mapbox/blend');
-let argv = require('minimist')(process.argv.slice(2));
+const { writeFile } = require('fs');
+const { join } = require('path');
+const axios = require('axios');
+const request = require('request');
+const blend = require('@mapbox/blend');
+const argv = require('minimist')(process.argv.slice(2));
 
 let {
     greeting = 'Hello',
@@ -13,6 +14,7 @@ let {
     size = 100
 } = argv;
 
+// refactoring step1: use request body/options function to achieve simplicity and reusability
 /**
  * @returns eg: {url: https://cataas.com/cat/says/Hi%20There?width=500&amp;height=800&amp;c=Cyan&amp;s=150}
  */
@@ -22,7 +24,11 @@ const requestBodyGenerator = (word, width, height, color, size, encodingType) =>
 });
 
 const firstReq = requestBodyGenerator(greeting, width, height, color, size, 'binary');
-const secondReq = requestBodyGenerator(greeting, width, height, color, size, 'binary');
+const secondReq = requestBodyGenerator(who, width, height, color, size, 'binary');
+
+// refactoring step1 end
+
+// refactoring step2: use axios: reason1: npm request deprecated, reason2: avoid callback hell
 
 request.get(firstReq, (err, res, firstBody) => {
     if (err) {
